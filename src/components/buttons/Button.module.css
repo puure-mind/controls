@@ -1,0 +1,14 @@
+.button{
+    border: 1px solid rgba(39, 143, 196, 0.6);
+    border-radius: 2px;
+    background: none;
+    cursor: pointer;
+    transition: background-color .2s ease-out .1s;
+}
+.button:hover{
+    background-color: rgba(10, 90, 129, 0.6);
+}
+.button:active{
+    transition: none;
+    background: rgba(10, 90, 129, 0.9);
+}

@@ -1,0 +1,13 @@
+.rightAddon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+    border-width: 1px;
+    background-color: #EDF2F7;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1px 4px;
+}

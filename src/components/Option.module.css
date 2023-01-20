@@ -1,0 +1,29 @@
+.option{
+    display: inline-flex;
+    box-sizing: border-box;
+    padding: 2px 4px;
+    margin: 2px 1px;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+.option:hover{
+    background-color: #204091;
+}
+.option__img{
+    width: 50px;
+    height: 25px;
+    object-fit:cover;
+    margin-left: auto;
+}
+.option__description{
+    display: flex;
+    flex-direction: column;
+}
+.option__title{
+    font-size: medium;
+}
+.option__subtitle{
+    font-size: small;
+    color:#7e8396;
+}

@@ -1,0 +1,9 @@
+.input{
+    border:1px solid #1A202C;
+    height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+}
+.input:focus{
+    outline-color: rgba(39, 143, 196, 0.6);
+}

@@ -1,0 +1,13 @@
+.leftAddon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+    border-width: 1px;
+    background-color: #EDF2F7;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1px 4px;
+}
