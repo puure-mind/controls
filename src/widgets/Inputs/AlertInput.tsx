@@ -1,9 +1,12 @@
 import { observer } from 'mobx-react-lite';
-import { InputRightAddon } from './inputs/common/InputRightAddon';
-import { Button } from './buttons/Button';
-import { AddonsInput, AddonsInputRef } from './inputs/AddonsInput';
+import { InputRightAddon } from '../../shared/ui/Inputs/Input';
+import { Button } from '../../shared/ui/Buttons';
 import React, { createRef } from 'react';
-import { InputLeftAddon } from './inputs/common/InputLeftAddon';
+import { InputLeftAddon } from '../../shared/ui/Inputs/Input';
+import {
+  AddonsInput,
+  AddonsInputRef,
+} from '../../shared/ui/Inputs/AddonsInput/ui/AddonsInput';
 
 const isNumber = (value: string) => {
   if (value.slice(0, 1) === ' ' || value.slice(-1) === ' ') return;

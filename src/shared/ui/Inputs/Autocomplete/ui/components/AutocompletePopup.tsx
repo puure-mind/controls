@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
-import { AutocompleteContext } from './Autocomplete';
+import { AutocompleteContext } from '../Autocomplete';
 import styles from './AutocompletePopup.module.css';
 
 export const AutocompletePopup = observer(({ item }: any) => {

@@ -1,11 +1,11 @@
 import { observer } from 'mobx-react-lite';
-import { Input } from '../input/Input';
-import React, { createContext, useEffect, useRef, useState } from 'react';
-import { AutocompleteViewModel } from './AutocompleteViewModel';
-import { AutocompletePopup } from './AutocompletePopup';
+import { Input } from '../../Input';
+import React, { createContext, useEffect, useRef } from 'react';
+import { AutocompleteViewModel } from '../viewModel/AutocompleteViewModel';
+import { AutocompletePopup } from './components/AutocompletePopup';
 
 export interface AutocompleteProps {
-  maxOptions: number;
+  viewModel: AutocompleteViewModel;
   renderOption: (props: any, option: any) => React.ReactNode;
 }
 
@@ -14,22 +14,16 @@ export const AutocompleteContext = createContext<AutocompleteViewModel>(
 );
 
 export const Autocomplete = observer(
-  ({ maxOptions, renderOption }: AutocompleteProps) => {
-    const [autocompleteViewModel] = useState(
-      () => new AutocompleteViewModel(maxOptions)
-    );
+  ({ viewModel, renderOption }: AutocompleteProps) => {
     const autocompleteRef = useRef({} as any);
 
-    const changeInputValueHandler = (e: any) => {
-      autocompleteViewModel.changeInputValue(e.target.value);
-    };
     const openPopup = () => {
-      autocompleteViewModel.openPopup();
+      viewModel.openPopup();
     };
 
     useEffect(() => {
       const closePopup = () => {
-        autocompleteViewModel.closePopup();
+        viewModel.closePopup();
       };
 
       const clickOutsideHandler = (e: any) => {
@@ -46,20 +40,15 @@ export const Autocomplete = observer(
       return () => {
         window.removeEventListener('click', clickOutsideHandler);
       };
-    }, [autocompleteViewModel]);
+    }, [viewModel]);
 
     return (
-      <AutocompleteContext.Provider value={autocompleteViewModel}>
+      <AutocompleteContext.Provider value={viewModel}>
         <div ref={autocompleteRef} style={{ width: '250px' }}>
           <div onClick={openPopup}>
-            <Input
-              value={autocompleteViewModel.inputValue}
-              onChange={changeInputValueHandler}
-            />
+            <Input viewModel={viewModel.inputViewModel} />
           </div>
-          {autocompleteViewModel.isPopupOpen && (
-            <AutocompletePopup item={renderOption} />
-          )}
+          {viewModel.isPopupOpen && <AutocompletePopup item={renderOption} />}
         </div>
       </AutocompleteContext.Provider>
     );

@@ -1,23 +1,17 @@
 import { makeAutoObservable } from 'mobx';
 
-const greeting = 'Hello world!';
-
 export class InputViewModel {
   inputValue = '';
+  placeholder = '';
 
-  constructor() {
+  constructor(initialValue: string = '', placeholder: string = '') {
     makeAutoObservable(this);
+
+    this.inputValue = initialValue;
+    this.placeholder = placeholder;
   }
 
   changeInputValue = (value: string) => {
     this.inputValue = value;
-  };
-
-  clearValue = () => {
-    this.inputValue = '';
-  };
-
-  greeting = () => {
-    this.inputValue = greeting;
   };
 }

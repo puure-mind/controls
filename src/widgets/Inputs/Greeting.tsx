@@ -1,8 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import React, { createRef } from 'react';
-import { AddonsInput, AddonsInputRef } from './inputs/AddonsInput';
-import { Button } from './buttons/Button';
-import { InputRightAddon } from './inputs/common/InputRightAddon';
+import {
+  AddonsInput,
+  AddonsInputRef,
+} from '../../shared/ui/Inputs/AddonsInput/ui/AddonsInput';
+import { InputRightAddon } from '../../shared/ui/Inputs/Input';
+import { Button } from '../../shared/ui/Buttons';
+
+const GREETING = 'Hello World!';
 
 export const Greeting = observer(() => {
   const addonRef = createRef<AddonsInputRef>();
@@ -10,13 +15,13 @@ export const Greeting = observer(() => {
   const clearHandler = () => {
     if (!addonRef.current) return;
 
-    addonRef.current.viewModel.clearValue();
+    addonRef.current.viewModel.changeInputValue('');
   };
 
   const greetingHandler = () => {
     if (!addonRef.current) return;
 
-    addonRef.current.viewModel.greeting();
+    addonRef.current.viewModel.changeInputValue(GREETING);
   };
 
   return (
